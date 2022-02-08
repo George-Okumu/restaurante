@@ -13,8 +13,9 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args){
         staticFileLocation("/public");
-        String connectmetodatabase = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectmetodatabase, "", "");
+//        String connectmetodatabase = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectmetodatabase = "jdbc:postgresql://localhost:5432/restaurant";
+        Sql2o sql2o = new Sql2o(connectmetodatabase, "postgres", "george");
         Sql2oRestaurantDao sql2oRestaurantDao = new Sql2oRestaurantDao(sql2o);
 
         //get: show all tasks in all categories and show all categories
